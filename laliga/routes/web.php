@@ -15,7 +15,7 @@ use App\Http\Controllers\PartidoController;
 |
 */
 
-Route::view('/', 'index' );
+Route::view('/', 'index' )->name('home');
 
 Route::prefix('equipos')->group(function () {
     Route::get('/', [EquipoController::class, 'index'])->name('equipos.index');
