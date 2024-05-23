@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="fundacion">Año de Fundación:</label>
-                <input type="text" id="fundacion" name="fundacion" class="form-control">
+                <input type="date" id="fundacion" name="fundacion" class="form-control">
             </div>
             <div class="form-group">
                 <label for="estadio">Estadio:</label>

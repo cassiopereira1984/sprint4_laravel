@@ -7,7 +7,7 @@
     <table class="table mt-3">
         <thead>
             <tr>
-                <th>ID</th>
+                <th></th>
                 <th>Nombre</th>
                 <th>Ciudad</th>
                 <th>Fundación</th>
@@ -17,7 +17,7 @@
         <tbody>
             @foreach ($equipos as $equipo)
                 <tr>
-                    <td>{{ $equipo->id }}</td>
+                    <td><img src="{{ asset('storage/' . $equipo->logo) }}" alt="{{ $equipo->nombre }}" width="50" height="50"></td>
                     <td>{{ $equipo->nombre }}</td>
                     <td>{{ $equipo->ciudad }}</td>
                     <td>{{ $equipo->fundacion }}</td>
