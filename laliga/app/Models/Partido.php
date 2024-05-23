@@ -1,12 +1,10 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Partido extends Model
 {
-    protected $table = 'equipos';
-
     protected $fillable = [
         'equipo_local_id',
         'equipo_visitante_id',
@@ -26,4 +24,5 @@ class Partido extends Model
         return $this->belongsTo(Equipo::class, 'equipo_visitante_id');
     }
 }
+
 ?>

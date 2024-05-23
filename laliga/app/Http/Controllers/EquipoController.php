@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Equipo;
 use Illuminate\Http\Request;
-
 class EquipoController extends Controller
 {
     public function index()
@@ -17,28 +17,11 @@ class EquipoController extends Controller
         return view('equipos.create');
     }
 
-    // public function store(Request $request)
-    // {
-    //     Equipo::create($request->all());
-    //     return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
-    // }
-
     public function store(Request $request)
-{
-    // Validación de datos aquí si es necesario
-
-    // Crear un nuevo equipo utilizando el método create()
-    $equipo = new Equipo();
-    $equipo->nombre = $request->input('nombre');
-    $equipo->ciudad = $request->input('ciudad');
-    $equipo->logo = $request->input('logo');
-    $equipo->fundacion = $request->input('fundacion');
-    $equipo->estadio = $request->input('estadio');
-    $equipo->save();
-
-    // Redireccionar a alguna parte después de guardar el equipo
-    return redirect()->route('equipos.index');
-}
+    {
+        Equipo::create($request->all());
+        return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
+    }
 
     public function show(Equipo $equipo)
     {
@@ -62,4 +45,5 @@ class EquipoController extends Controller
         return redirect()->route('equipos.index')->with('success', 'Equipo eliminado correctamente.');
     }
 }
+
 ?>  
