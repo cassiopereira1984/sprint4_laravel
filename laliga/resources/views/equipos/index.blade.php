@@ -1,39 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Equipos</h1>
-    <a href="{{ route('equipos.create') }}" class="btn btn-primary">Crear Equipo</a>
-    <a href="{{ route('home') }}" class="btn btn-primary">volver</a>
-    <table class="table mt-3">
+<div class="flex items-center justify-center my-5">
+    <img src="imagen/1.png" alt="Imagen de ejemplo" class="w-12 h-12 mr-3">
+    <h1 class="font-bold text-3xl text-red-500">Equipos</h1>
+</div>
+
+<div class="flex justify-center my-5">
+    <a href="{{ route('equipos.create') }}" class="text-white bg-green-500 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear Equipo</a>
+</div>
+
+<div class="overflow-x-auto">
+    <table class="table-auto mt-2 w-2/4 mx-auto text-center">
         <thead>
             <tr>
-                <th></th>
-                <th>Nombre</th>
-                <th>Ciudad</th>
-                <th>Fundación</th>
-                <th>Estadio</th>
+                <th class="px-2 py-1"></th>
+                <th class="px-2 py-1">Nombre</th>
+                <th class="px-2 py-1">Ciudad</th>
+
+                <th class="px-2 py-1">Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($equipos as $equipo)
                 <tr>
-                    <td><img src="{{ asset('storage/' . $equipo->logo) }}" alt="{{ $equipo->nombre }}" width="50" height="50"></td>
-                    <td>{{ $equipo->nombre }}</td>
-                    <td>{{ $equipo->ciudad }}</td>
-                    <td>{{ $equipo->fundacion }}</td>
-                    <td>{{ $equipo->estadio }}</td>
-                    <td>
-                        <a href="{{ route('equipos.show', $equipo->id) }}" class="btn btn-info">Ver</a>
-                        <a href="{{ route('equipos.edit', $equipo->id) }}" class="btn btn-primary">Editar</a>
-                        <form action="{{ route('equipos.destroy', $equipo->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
+                    <td class="px-2 py-1"><img src="{{ asset('storage/' . $equipo->logo) }}" alt="{{ $equipo->nombre }}" class="w-12 h-12 mx-auto"></td>
+                    <td class="px-2 py-1">{{ $equipo->nombre }}</td>
+                    <td class="px-2 py-1">{{ $equipo->ciudad }}</td>
+                    <td class="px-2 py-1">
+                        <a href="{{ route('equipos.show', $equipo->id) }}" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 mr-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Detalles</a>
                     </td>
                 </tr>
             @endforeach
-        
         </tbody>
     </table>
+</div>
+
+<div class="flex justify-center my-5">
+    <a href="{{ route('home') }}" class="text-white bg-red-500 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Volver</a>
+</div>
 @endsection

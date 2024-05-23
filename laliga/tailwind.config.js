@@ -7,7 +7,21 @@ module.exports = {
     './resources/**/*.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        moveSign: {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          '100%': {
+            transform: 'translateX(100%)',
+          },
+        },
+      },
+      animation: {
+        moveSign: 'moveSign 5s linear infinite',
+      },
+    },
   },
   plugins: [],
 };
