@@ -24,13 +24,21 @@
             @foreach ($partidos as $partido)
                 <tr>
                     <td>{{ $partido->id }}</td>
-                    <td>{{ $partido->equipoLocal->nombre }}</td>
+                    <td>{{ $partido->equipoLocal ? $partido->equipoLocal->nombre : 'Equipo no disponible' }}</td>
                     <td>
-                        <img src="{{ asset('storage/' . $partido->equipoLocal->logo) }}" alt="Logo Local" class="img-fluid" style="max-height: 50px;">
+                        @if ($partido->equipoLocal)
+                            <img src="{{ asset('storage/' . $partido->equipoLocal->logo) }}" alt="Logo Local" class="img-fluid" style="max-height: 50px;">
+                        @else
+                            Logo no disponible
+                        @endif
                     </td>
-                    <td>{{ $partido->equipoVisitante->nombre }}</td>
+                    <td>{{ $partido->equipoVisitante ? $partido->equipoVisitante->nombre : 'Equipo no disponible' }}</td>
                     <td>
-                        <img src="{{ asset('storage/' . $partido->equipoVisitante->logo) }}" alt="Logo Visitante" class="img-fluid" style="max-height: 50px;">
+                        @if ($partido->equipoVisitante)
+                            <img src="{{ asset('storage/' . $partido->equipoVisitante->logo) }}" alt="Logo Visitante" class="img-fluid" style="max-height: 50px;">
+                        @else
+                            Logo no disponible
+                        @endif
                     </td>
                     <td>{{ $partido->fecha }}</td>
                     <td>{{ $partido->resultado_local }}</td>

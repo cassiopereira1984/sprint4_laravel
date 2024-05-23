@@ -16,12 +16,12 @@ class Partido extends Model
         'estadio',
     ];
 
-    public function equipoLocal()
+    public function equipoLocall()
     {
         return $this->belongsTo(Equipo::class, 'equipo_local_id');
     }
 
-    public function equipoVsitante()
+    public function equipoVsitantel()
     {
         return $this->belongsTo(Equipo::class, 'equipo_visitante_id');
     }
