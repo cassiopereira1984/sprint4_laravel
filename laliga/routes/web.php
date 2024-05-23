@@ -17,6 +17,7 @@ use App\Http\Controllers\PartidoController;
 
 Route::view('/', 'index' );
 
+Route::prefix('equipos')->group(function () {
     Route::get('/', [EquipoController::class, 'index'])->name('equipos.index');
     Route::get('/create', [EquipoController::class, 'create'])->name('equipos.create');
     Route::post('/', [EquipoController::class, 'store'])->name('equipos.store');
