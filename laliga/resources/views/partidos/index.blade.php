@@ -23,13 +23,7 @@
                     <td class="px-2 py-1"><img src="{{ asset('storage/' . $partido->equipoVisitante->logo) }}" alt="Logo Visitante" class="w-12 h-12 mx-auto"></td>
                     <td class="px-2 py-1">{{ $partido->equipoVisitante->nombre }}</td>
                     <td class="px-2 py-1">
-                        <a href="{{ route('partidos.show', $partido->id) }}" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 mr-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver</a>
-                        <a href="{{ route('partidos.edit', $partido->id) }}" class="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 mr-1 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Editar</a>
-                        <form action="{{ route('partidos.destroy', $partido->id) }}" method="POST" class="inline" onsubmit="return confirm('¿Está seguro que desea eliminar este partido?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Eliminar</button>
-                        </form>
+                        <a href="{{ route('partidos.show', $partido->id) }}" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 mr-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Detalles</a>
                     </td>
                 </tr>
             @endforeach

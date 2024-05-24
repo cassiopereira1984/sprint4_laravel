@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex items-center justify-center my-5">
     <img src="{{ asset('imagen/1.png') }}" alt="Imagen de ejemplo" class="w-12 h-12 mr-3">
-    <h1 class="font-bold text-xl md:text-3xl text-red-500">Crear Nuevo Equipo</h1>
+    <h1 class="font-bold text-xl md:text-3xl text-red-500">Crear Equipo</h1>
 </div>
 
 <div class="flex justify-center">
@@ -18,7 +18,7 @@
             <input type="text" id="ciudad" name="ciudad" class="form-control border border-gray-300 rounded-lg p-2 w-full">
         </div>
         <div class="form-group mb-4">
-            <label for="fundacion" class="block text-gray-700 font-bold mb-2">Año de Fundación:</label>
+            <label for="fundacion" class="block text-gray-700 font-bold mb-2">Fundación:</label>
             <input type="date" id="fundacion" name="fundacion" class="form-control border border-gray-300 rounded-lg p-2 w-full">
         </div>
         <div class="form-group mb-4">
