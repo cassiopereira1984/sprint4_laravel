@@ -20,6 +20,12 @@ class EquipoController extends Controller
     public function store(Request $request)
     {
         Equipo::create($request->all());
+
+        if (Equipo::save()) {
+            return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
+        } else {
+            return redirect()->route('equipos.index')->withErrors('Error al crear el equipo.');
+        }
         return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
     }
 
