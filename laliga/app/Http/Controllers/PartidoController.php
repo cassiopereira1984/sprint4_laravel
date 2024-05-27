@@ -21,7 +21,17 @@ class PartidoController extends Controller
     
     public function store(Request $request)
     {
-        Partido::create($request->all());
+        $datosValidos = $request->validate([
+            'equipo_local_id' => 'required|exists:equipos,id',
+            'equipo_visitante_id' => 'required|exists:equipos,id',
+            'fecha' => 'required|date',
+            'estadio' => 'required|string|max:255',
+            'resultado_local' => 'required|integer',
+            'resultado_visitante' => 'required|integer',
+        ]);
+
+        Partido::create($datosValidos);
+        
         return redirect()->route('partidos.index')->with('success', 'Partido creado correctamente.');
     }
 
