@@ -19,14 +19,17 @@ class EquipoController extends Controller
 
     public function store(Request $request)
     {
-        Equipo::create($request->all());
+        $datosValidos = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'ciudad' => 'required|string|max:255',
+            'fundacion' => 'required|date',
+            'estadio' => 'required|string|max:255',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        if (Equipo::save()) {
-            return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
-        } else {
-            return redirect()->route('equipos.index')->withErrors('Error al crear el equipo.');
-        }
-        return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
+    Equipo::create($datosValidos);
+
+    return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
     }
 
     public function show(Equipo $equipo)
