@@ -44,8 +44,16 @@ class EquipoController extends Controller
 
     public function update(Request $request, Equipo $equipo)
     {
-        $equipo->update($request->all());
-        return redirect()->route('equipos.index')->with('success', 'Equipo actualizado correctamente.');
+        $datosValidos = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'ciudad' => 'required|string|max:255',
+            'fundacion' => 'required|date',
+            'estadio' => 'required|string|max:255',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        $equipo->update($datosValidos);
+        return redirect()->route('equipo.index')->with('success', 'Equipo actualizado correctamente.');
     }
 
     public function destroy(Equipo $equipo)
