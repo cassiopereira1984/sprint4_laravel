@@ -20,10 +20,10 @@ class EquipoController extends Controller
     public function store(Request $request)
     {
         $datosValidos = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'ciudad' => 'required|string|max:255',
+            'nombre' => 'required|string|max:100',
+            'ciudad' => 'required|string|max:100',
             'fundacion' => 'required|date',
-            'estadio' => 'required|string|max:255',
+            'estadio' => 'required|string|max:100',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -45,10 +45,10 @@ class EquipoController extends Controller
     public function update(Request $request, Equipo $equipo)
     {
         $datosValidos = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'ciudad' => 'required|string|max:255',
+            'nombre' => 'required|string|max:100',
+            'ciudad' => 'required|string|max:100',
             'fundacion' => 'required|date',
-            'estadio' => 'required|string|max:255',
+            'estadio' => 'required|string|max:100',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     

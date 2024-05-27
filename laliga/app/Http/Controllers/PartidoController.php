@@ -25,9 +25,9 @@ class PartidoController extends Controller
             'equipo_local_id' => 'required|exists:equipos,id',
             'equipo_visitante_id' => 'required|exists:equipos,id',
             'fecha' => 'required|date',
-            'estadio' => 'required|string|max:255',
-            'resultado_local' => 'required|integer',
-            'resultado_visitante' => 'required|integer',
+            'estadio' => 'required|string|max:100',
+            'resultado_local' => 'required|integer|max:11',
+            'resultado_visitante' => 'required|integer|max:11',
         ]);
 
         Partido::create($datosValidos);
@@ -52,9 +52,9 @@ class PartidoController extends Controller
             'equipo_local_id' => 'required|exists:equipos,id',
             'equipo_visitante_id' => 'required|exists:equipos,id',
             'fecha' => 'required|date',
-            'estadio' => 'required|string|max:255',
-            'resultado_local' => 'required|integer',
-            'resultado_visitante' => 'required|integer',
+            'estadio' => 'required|string|max:100',
+            'resultado_local' => 'required|integer|max:11',
+            'resultado_visitante' => 'required|integer|11',
         ]);
     
         $partido->update($datosValidos);
