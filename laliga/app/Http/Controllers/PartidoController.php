@@ -31,7 +31,6 @@ class PartidoController extends Controller
         ]);
 
         Partido::create($datosValidos);
-        
         return redirect()->route('partidos.index')->with('success', 'Partido creado correctamente.');
     }
 
@@ -49,7 +48,16 @@ class PartidoController extends Controller
     
     public function update(Request $request, Partido $partido)
     {
-        $partido->update($request->all());
+        $datosValidos = $request->validate([
+            'equipo_local_id' => 'required|exists:equipos,id',
+            'equipo_visitante_id' => 'required|exists:equipos,id',
+            'fecha' => 'required|date',
+            'estadio' => 'required|string|max:255',
+            'resultado_local' => 'required|integer',
+            'resultado_visitante' => 'required|integer',
+        ]);
+    
+        $partido->update($datosValidos);
         return redirect()->route('partidos.index')->with('success', 'Partido actualizado correctamente.');
     }
 
