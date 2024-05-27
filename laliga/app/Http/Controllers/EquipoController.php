@@ -27,9 +27,9 @@ class EquipoController extends Controller
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-    Equipo::create($datosValidos);
+        Equipo::create($datosValidos);
 
-    return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
+        return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
     }
 
     public function show(Equipo $equipo)
