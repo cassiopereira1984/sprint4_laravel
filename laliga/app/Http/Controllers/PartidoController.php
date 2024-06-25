@@ -54,7 +54,7 @@ class PartidoController extends Controller
             'fecha' => 'required|date',
             'estadio' => 'required|string|max:100',
             'resultado_local' => 'required|integer|max:11',
-            'resultado_visitante' => 'required|integer|11',
+            'resultado_visitante' => 'required|integer|max:11',
         ]);
     
         $partido->update($datosValidos);
