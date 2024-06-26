@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipo;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 class EquipoController extends Controller
 {
 
@@ -78,6 +79,12 @@ class EquipoController extends Controller
     {
         $equipo->delete();
         return redirect()->route('equipos.index')->with('success', 'Equipo eliminado correctamente.');
+        // try {
+        //     $equipo->delete();
+        //     return redirect()->route('equipos.index')->with('success', 'Equipo eliminado correctamente.');
+        // } catch (QueryException $e) {
+        //     return redirect()->route('equipos.index')->with('error', 'No se puede eliminar el equipo porque está vinculado a un partido.');
+        // }
     }
 }
 
