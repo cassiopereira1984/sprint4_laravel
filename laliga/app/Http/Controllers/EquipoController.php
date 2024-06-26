@@ -9,6 +9,8 @@ class EquipoController extends Controller
 
     /*Hola soy una feature para de la rama modelo que se utilizará para hacher um merge de 
     cherry-pick en la rama de reentrega.*/
+
+    /*Hola otra vez, ahora soy una feature para que un merge directo a la rama reentrega.*/
     public function index()
     {
         $equipos = Equipo::all();
