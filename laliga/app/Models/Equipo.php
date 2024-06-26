@@ -10,10 +10,15 @@ class Equipo extends Model
 
     protected $fillable = ['nombre', 'ciudad', 'logo', 'fundacion', 'estadio'];
 
-    // public function partidos() 
-    // {
-    //     return $this->hasMany(Equipo::class);
-    // }
+    public function partidosLocal()
+    {
+        return $this->hasMany(Partido::class, 'equipo_local_id');
+    }
+
+    public function partidosVisitante()
+    {
+        return $this->hasMany(Partido::class, 'equipo_visitante_id');
+    }
 }
 
 ?>
