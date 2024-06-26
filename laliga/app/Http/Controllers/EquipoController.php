@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipo;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 class EquipoController extends Controller
 {
 
@@ -31,9 +32,15 @@ class EquipoController extends Controller
             'estadio' => 'required|string|max:100',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+    
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $nombreArchivo = time() . '_' . $logo->getClientOriginalName();
+            $rutaArchivo = $logo->storeAs('logos', $nombreArchivo, 'public');
+            $datosValidos['logo'] = $rutaArchivo;
+        }
 
         Equipo::create($datosValidos);
-
         return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
     }
 
@@ -56,15 +63,28 @@ class EquipoController extends Controller
             'estadio' => 'required|string|max:100',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $nombreArchivo = time() . '_' . $logo->getClientOriginalName();
+            $rutaArchivo = $logo->storeAs('logos', $nombreArchivo, 'public');
+            $datosValidos['logo'] = $rutaArchivo;
+        }
     
         $equipo->update($datosValidos);
-        return redirect()->route('equipo.index')->with('success', 'Equipo actualizado correctamente.');
+        return redirect()->route('equipos.index')->with('success', 'Equipo actualizado correctamente.');
     }
 
     public function destroy(Equipo $equipo)
     {
         $equipo->delete();
         return redirect()->route('equipos.index')->with('success', 'Equipo eliminado correctamente.');
+        // try {
+        //     $equipo->delete();
+        //     return redirect()->route('equipos.index')->with('success', 'Equipo eliminado correctamente.');
+        // } catch (QueryException $e) {
+        //     return redirect()->route('equipos.index')->with('error', 'No se puede eliminar el equipo porque está vinculado a un partido.');
+        // }
     }
 }
 

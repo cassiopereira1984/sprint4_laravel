@@ -21,8 +21,8 @@ class CreatePartidosTable extends Migration
             $table->integer('resultado_local')->nullable();
             $table->integer('resultado_visitante')->nullable();
             $table->string('estadio');
-            $table->foreign('equipo_local_id')->references('id')->on('equipos');
-            $table->foreign('equipo_visitante_id')->references('id')->on('equipos');
+            $table->foreign('equipo_local_id')->references('id')->on('equipos')->onDelete('cascade');
+            $table->foreign('equipo_visitante_id')->references('id')->on('equipos')->onDelete('cascade');
             $table->timestamps();
         });
     }
