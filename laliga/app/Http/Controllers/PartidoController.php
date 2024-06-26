@@ -15,7 +15,7 @@ class PartidoController extends Controller
 
     public function create()
     {
-        $equipos = Equipo::all(); // Obtener todos los equipos desde tu modelo Equipo
+        $equipos = Equipo::all();
         return view('partidos.create', compact('equipos'));
     }
     

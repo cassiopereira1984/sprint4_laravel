@@ -31,9 +31,17 @@ class EquipoController extends Controller
             'estadio' => 'required|string|max:100',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+    
+        // Si llegamos aquí, los datos son válidos
+        // Procesamos la carga del archivo (logo)
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $nombreArchivo = time() . '_' . $logo->getClientOriginalName();
+            $rutaArchivo = $logo->storeAs('logos', $nombreArchivo, 'public');
+            $datosValidos['logo'] = $rutaArchivo;
+        }
 
         Equipo::create($datosValidos);
-
         return redirect()->route('equipos.index')->with('success', 'Equipo creado correctamente.');
     }
 
