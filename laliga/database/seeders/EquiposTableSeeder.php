@@ -19,7 +19,7 @@ class EquiposTableSeeder extends Seeder
             'ciudad' => 'Rio de Janeiro',
             'fundacion' => '2000-01-01',
             'estadio' => 'Estadio A',
-            'logo' => '/images/bota.png',
+            'logo' => '/storage/bota.png',
         ]);
 
         Equipo::create([
