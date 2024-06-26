@@ -15,11 +15,11 @@ class CreateEquiposTable extends Migration
     {
         Schema::create('equipos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('logo');
-            $table->string('ciudad');
+            $table->string('nombre', 100);
+            $table->string('ciudad', 100);
             $table->date('fundacion');
-            $table->string('estadio');
+            $table->string('estadio', 100);
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
