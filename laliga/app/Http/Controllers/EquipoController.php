@@ -63,10 +63,15 @@ class EquipoController extends Controller
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $nombreArchivo = time() . '_' . $logo->getClientOriginalName();
+            $rutaArchivo = $logo->storeAs('logos', $nombreArchivo, 'public');
+            $datosValidos['logo'] = $rutaArchivo;
+        }
     
         $equipo->update($datosValidos);
-        return redirect()->route('equipo.index')->with('success', 'Equipo actualizado correctamente.');
+        return redirect()->route('equipos.index')->with('success', 'Equipo actualizado correctamente.');
     }
 
     public function destroy(Equipo $equipo)
