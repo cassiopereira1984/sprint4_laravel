@@ -62,6 +62,8 @@ class EquipoController extends Controller
             'estadio' => 'required|string|max:100',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        
     
         $equipo->update($datosValidos);
         return redirect()->route('equipo.index')->with('success', 'Equipo actualizado correctamente.');
