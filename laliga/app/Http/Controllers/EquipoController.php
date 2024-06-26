@@ -31,7 +31,7 @@ class EquipoController extends Controller
             'estadio' => 'required|string|max:100',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
+    
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $nombreArchivo = time() . '_' . $logo->getClientOriginalName();
