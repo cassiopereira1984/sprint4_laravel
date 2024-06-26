@@ -6,6 +6,9 @@ use App\Models\Equipo;
 use Illuminate\Http\Request;
 class EquipoController extends Controller
 {
+
+    /*Hola soy una feature para de la rama modelo que se utilizará para hacher um merge de 
+    cherry-pick en la rama de reentrega.*/
     public function index()
     {
         $equipos = Equipo::all();
