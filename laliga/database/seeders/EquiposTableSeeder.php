@@ -27,7 +27,7 @@ class EquiposTableSeeder extends Seeder
             'ciudad' => 'Barcelona',
             'fundacion' => '2003-05-05',
             'estadio' => 'Camp Nou',
-            'logo' => '/images/barca.png',
+            'logo' => '/storage/barca.png',
         ]);
 
         Equipo::create([
@@ -35,7 +35,7 @@ class EquiposTableSeeder extends Seeder
             'ciudad' => 'Madrid',
             'fundacion' => '2002-01-01',
             'estadio' => 'Bernabeu',
-            'logo' => '/images/real.png',
+            'logo' => '/storage/real.png',
         ]);
 
         Equipo::create([
@@ -43,7 +43,7 @@ class EquiposTableSeeder extends Seeder
             'ciudad' => 'Madrid',
             'fundacion' => '2003-01-01',
             'estadio' => 'Estadio A',
-            'logo' => '/images/rayo.png',
+            'logo' => '/storage/rayo.png',
         ]);
 
         Equipo::create([
@@ -51,7 +51,7 @@ class EquiposTableSeeder extends Seeder
             'ciudad' => 'Salvador',
             'fundacion' => '2020-01-01',
             'estadio' => 'Castelao',
-            'logo' => '/images/vict.png',
+            'logo' => '/storage/vict.png',
         ]);
 
     }
