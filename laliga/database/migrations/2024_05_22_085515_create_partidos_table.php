@@ -17,7 +17,7 @@ class CreatePartidosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('equipo_local_id');
             $table->unsignedBigInteger('equipo_visitante_id');
-            $table->date('fecha');
+            $table->datetime('fecha');
             $table->integer('resultado_local')->nullable();
             $table->integer('resultado_visitante')->nullable();
             $table->string('estadio');

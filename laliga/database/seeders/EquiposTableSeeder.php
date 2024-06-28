@@ -18,8 +18,8 @@ class EquiposTableSeeder extends Seeder
             'nombre' => 'Botafogo',
             'ciudad' => 'Rio de Janeiro',
             'fundacion' => '2000-01-01',
-            'estadio' => 'Estadio A',
-            'logo' => '/storage/bota.png',
+            'estadio' => 'Engenhao',
+            'logo' => '\storage\barca.png',
         ]);
 
         Equipo::create([
@@ -27,7 +27,7 @@ class EquiposTableSeeder extends Seeder
             'ciudad' => 'Barcelona',
             'fundacion' => '2003-05-05',
             'estadio' => 'Camp Nou',
-            'logo' => '/storage/barca.png',
+            'logo' => 'public/storage/barca.png',
         ]);
 
         Equipo::create([
